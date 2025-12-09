@@ -1,0 +1,53 @@
+.header {
+  height: 38vw;
+  margin: 30px auto;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0));
+}
+
+.header-contents {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: white;
+  max-width: 40%;
+  animation: fadeIn 1.8s ease;
+}
+
+.header-contents h2 {
+  font-size: max(4.5vw, 32px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.header-contents p {
+  margin: 1vw 0 2vw;
+  font-size: max(1.2vw, 15px);
+}
+
+.header-contents button {
+  background: #ffb600;
+  color: #222;
+  padding: 1vw 2.5vw;
+  border: none;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header-contents button:hover {
+  background: #ffd84d;
+  transform: scale(1.05);
+}
