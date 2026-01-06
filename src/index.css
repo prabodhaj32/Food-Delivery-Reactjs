@@ -1,34 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
-*{
-  padding:0;
+:root {
+  --bg: #0f1116;
+  --card: rgba(255, 255, 255, 0.06);
+  --muted: #9aa4b5;
+  --text: #eef2f8;
+  --primary: #2de39a;
+  --primary-2: #6c7bff;
+  --glass: rgba(255, 255, 255, 0.08);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --border: 1px solid rgba(255, 255, 255, 0.08);
+  --gradient: linear-gradient(120deg, #6c7bff 0%, #35e3a8 50%, #f5c452 100%);
+}
+
+* {
+  padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family:Outfit;
+  font-family: "Plus Jakarta Sans", "Inter", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
   scroll-behavior: smooth;
-
 }
-body{
+
+body {
   min-height: 100vh;
-
+  background: radial-gradient(circle at 20% 20%, rgba(109, 123, 255, 0.18), transparent 25%),
+    radial-gradient(circle at 80% 0%, rgba(45, 227, 154, 0.16), transparent 22%),
+    linear-gradient(180deg, #0c0d12 0%, #0f1116 60%, #0b0c11 100%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
-a{
+
+a {
   text-decoration: none;
   color: inherit;
+}
 
+.app {
+  width: min(1700px, 92vw);
+  margin: 0 auto 80px;
 }
-.app{
-  width: 80%;
-  margin: auto;
-}
-@keyframes fadeIn{
 
-0%{
-  opacity: 0;
+.glass-surface {
+  background: var(--glass);
+  border: var(--border);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow);
+}
 
-}
-100%{
-  opacity: 1;
-}
-  
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
-  const [menu, setMenu] = useState("menu");
+  const [menu, setMenu] = useState("home");
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const { getTotalCartAmount } = useContext(StoreContext);
@@ -15,68 +15,88 @@ const Navbar = ({ setShowLogin }) => {
   };
 
   return (
-    <div className="navbar">
-      {/* Logo */}
-      <Link to="/" className="logo-container">
+    <header className="navbar glass-surface">
+      <Link to="/" className="logo-container" onClick={() => setMenu("home")}>
         <img src={assets.logo} alt="logo" className="logo" />
+        <div className="brand">
+          <span className="brand-kicker">Delivering happy bites</span>
+          <span className="brand-name">Taste Corner</span>
+        </div>
       </Link>
 
-      {/* Hamburger Icon for Mobile */}
-      <div className="hamburger" onClick={toggleMobileMenu}>
-        <div className={mobileOpen ? "bar open" : "bar"}></div>
-        <div className={mobileOpen ? "bar open" : "bar"}></div>
-        <div className={mobileOpen ? "bar open" : "bar"}></div>
-      </div>
-
-      {/* Menu Items */}
-      <ul className={mobileOpen ? "navbar-menu mobile-show" : "navbar-menu"}>
+      <nav className={mobileOpen ? "navbar-menu mobile-show" : "navbar-menu"}>
         <Link
           to="/"
-          onClick={() => setMenu("home")}
+          onClick={() => {
+            setMenu("home");
+            setMobileOpen(false);
+          }}
           className={menu === "home" ? "active" : ""}
         >
-          home
+          Home
         </Link>
 
         <a
           href="#explore-menu"
-          onClick={() => setMenu("menu")}
+          onClick={() => {
+            setMenu("menu");
+            setMobileOpen(false);
+          }}
           className={menu === "menu" ? "active" : ""}
         >
-          menu
+          Menu
+        </a>
+
+        <a
+          href="#food-display"
+          onClick={() => {
+            setMenu("popular");
+            setMobileOpen(false);
+          }}
+          className={menu === "popular" ? "active" : ""}
+        >
+          Popular
         </a>
 
         <a
           href="#app-download"
-          onClick={() => setMenu("mobile-app")}
+          onClick={() => {
+            setMenu("mobile-app");
+            setMobileOpen(false);
+          }}
           className={menu === "mobile-app" ? "active" : ""}
         >
-          mobile-app
+          App
         </a>
 
         <a
           href="#footer"
-          onClick={() => setMenu("contact us")}
-          className={menu === "contact us" ? "active" : ""}
+          onClick={() => {
+            setMenu("contact");
+            setMobileOpen(false);
+          }}
+          className={menu === "contact" ? "active" : ""}
         >
-          contact us
+          Contact
         </a>
-      </ul>
+      </nav>
 
       <div className="navbar-right">
-        <img src={assets.search_icon} alt="search" />
-
-        <div className="navbar-seach-icon">
-          <Link to="/cart">
-            <img src={assets.basket_icon} alt="cart" />
-          </Link>
-
-          {getTotalCartAmount() > 0 && <div className="dot"></div>}
+        <button className="ghost-btn" onClick={() => setShowLogin(true)}>
+          Sign in
+        </button>
+        <Link to="/cart" className="cart-chip">
+          <img src={assets.basket_icon} alt="cart" />
+          <span>Cart</span>
+          {getTotalCartAmount() > 0 && <span className="dot"></span>}
+        </Link>
+        <div className="hamburger" onClick={toggleMobileMenu}>
+          <div className={mobileOpen ? "bar open" : "bar"}></div>
+          <div className={mobileOpen ? "bar open" : "bar"}></div>
+          <div className={mobileOpen ? "bar open" : "bar"}></div>
         </div>
-
-        <button onClick={() => setShowLogin(true)}>sign in</button>
       </div>
-    </div>
+    </header>
   );
 };
 
