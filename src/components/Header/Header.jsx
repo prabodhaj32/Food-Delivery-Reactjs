@@ -14,8 +14,8 @@ const Header = () => {
         <div className="header-contents">
           <p className="eyebrow">Premium delivery • Under 20 mins avg.</p>
           <h1 className="hero-title">
-            Delicious restaurant flavours,
-            <span> delivered fresh.</span>
+            Delicious flavours,
+            <span> Delivered fresh.</span>
           </h1>
           <p className="lede">
             Curated dishes from top-rated kitchens. Track live, earn rewards,
