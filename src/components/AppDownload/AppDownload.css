@@ -6,6 +6,7 @@
   grid-template-columns: 1.3fr 0.7fr;
   align-items: center;
   gap: 18px;
+  scroll-margin-top: 100px;
 }
 
 .app-download-copy h3 {

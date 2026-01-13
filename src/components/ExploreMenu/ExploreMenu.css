@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 18px;
   margin: 20px 0 30px;
+  scroll-margin-top: 100px;
 }
 
 .explore-header {

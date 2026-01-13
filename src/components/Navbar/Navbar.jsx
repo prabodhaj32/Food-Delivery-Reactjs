@@ -30,6 +30,7 @@ const Navbar = ({ setShowLogin }) => {
           onClick={() => {
             setMenu("home");
             setMobileOpen(false);
+            window.scrollTo(0, 0);
           }}
           className={menu === "home" ? "active" : ""}
         >
